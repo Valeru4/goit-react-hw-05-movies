@@ -4,8 +4,8 @@ const URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b5be8a81b67f23805c0e9d62a063210c';
 const TRENDIGMOVIES = '/trending/movie/day';
 const SEARCHMOVIES = '/search/movie';
-const MOVIECREDITS = '/movie/movie_id/credits';
-const MOVIEREVIEWS = 'movies/get-movie-reviews';
+// const MOVIECREDITS = '/movie/movie_id/credits';
+// const MOVIEREVIEWS = 'movies/get-movie-reviews';
 
 export const fetchTrendingMovies = async () => {
   const response = await axios.get(`${URL}${TRENDIGMOVIES}?api_key=${API_KEY}`);
