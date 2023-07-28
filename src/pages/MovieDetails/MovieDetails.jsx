@@ -29,9 +29,26 @@ export const MovieDetails = () => {
 
   return (
     <div>
-      {isLoading && <p>isLoading</p>}
-      {error && <p>Error</p>}
-      {movieDetails && <p>MovieDetails</p>}
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {movieDetails && (
+        <section>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+            alt={movieDetails.original_title}
+          />
+          <h1>{movieDetails.title}</h1>
+          <p> User score: {movieDetails.vote_average}</p>
+          <h2>Overview</h2>
+          <p>{movieDetails.overview}</p>
+          <h3>Genres:</h3>
+          {movieDetails.genres.map(genre => genre.name).join(', ')}
+        </section>
+      )}
+
+      <section>
+        <h2> Additional information</h2>
+      </section>
     </div>
   );
 };
