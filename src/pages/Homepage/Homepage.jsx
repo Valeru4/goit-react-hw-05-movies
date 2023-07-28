@@ -5,7 +5,6 @@ export const Home = () => {
   const [trendingMovie, setTrendingMovie] = useState([]);
 
   useEffect(() => {
-    if (!trendingMovie) return;
     const fetchData = async () => {
       try {
         const data = await fetchTrendingMovies();
