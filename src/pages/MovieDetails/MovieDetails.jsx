@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 export const MovieDetails = () => {
   const { movieId } = useParams();
   console.log(movieId);
-  const [movieDetails, setMoviedetils] = useState([]);
+  const [movieDetails, setMovieDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -13,24 +13,25 @@ export const MovieDetails = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
+        setError(null);
         const data = await fetchMovieDetails(movieId);
         console.log(data);
-
-        return data;
+        setMovieDetails(data);
       } catch (error) {
-        console.logg(error.mesage);
+        console.log(error.message);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }
     };
+    fetchData();
   }, [movieId]);
 
   return (
     <div>
-      {/* <h2>{title}</h2>
-      <p>User score: {vote_average} </p>
-      <p>Overview: {overview} </p>
-      <p>Genres: {genres_id}</p> */}
+      {isLoading && <p>isLoading</p>}
+      {error && <p>Error</p>}
+      {movieDetails && <p>MovieDetails</p>}
     </div>
   );
 };
