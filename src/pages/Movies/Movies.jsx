@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { fetchSearchMovies } from 'components/services/API';
 import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MovieList } from 'components/MovieList/MoviesList';
+import { useSyncExternalStore } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
