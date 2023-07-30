@@ -3,7 +3,6 @@ import { fetchSearchMovies } from 'components/services/API';
 import { useEffect } from 'react';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MovieList } from 'components/MovieList/MoviesList';
-import { useSyncExternalStore } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
@@ -36,6 +35,9 @@ export const Movies = () => {
 
   return (
     <>
+      {error && <p>Error: {error}</p>}
+      {isLoading && <p>Loading...</p>}
+
       <SearchForm setSearchParams={setSearchParams} />
       {movies.length > 0 && <MovieList movies={movies} />}
     </>
