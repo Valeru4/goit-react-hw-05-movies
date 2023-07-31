@@ -39,7 +39,7 @@ export const MovieDetails = () => {
         {error && <p>Error: {error}</p>}
         {movieDetails && (
           <section>
-            <Link to={backLinkHref}>Go back</Link>
+            <Link to={backLinkHref.current}>Go back</Link>
             <img
               src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
               alt={movieDetails.original_title}
@@ -55,8 +55,12 @@ export const MovieDetails = () => {
 
         <section>
           <h2> Additional information</h2>
-          <Link to="Cast"> Cast </Link>
-          <Link to="Reviews"> Reviews </Link>
+          <Link state={{ from: location }} to="Cast">
+            Cast
+          </Link>
+          <Link state={{ from: location }} to="Reviews">
+            Review
+          </Link>
         </section>
       </div>
       <Routes>

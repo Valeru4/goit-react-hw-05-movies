@@ -1,3 +1,5 @@
+import { Button, Input, Wrapper } from './SearchForm.styled';
+
 export const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = event => {
     event.preventDefault();
@@ -8,16 +10,16 @@ export const SearchForm = ({ setSearchParams }) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type="text"
           name="name"
           placeholder="Write your request"
           required
-        ></input>
-        <button type="submit">Search</button>
+        ></Input>
+        <Button type="submit">Search</Button>
       </form>
-    </div>
+    </Wrapper>
   );
 };

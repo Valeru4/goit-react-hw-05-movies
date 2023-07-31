@@ -1,13 +1,15 @@
 import { fetchMovieReviews } from 'components/services/API';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 export const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -29,6 +31,7 @@ export const Reviews = () => {
   return (
     <div>
       {isLoading && <p>Loading...</p>}
+      <Link to={backLinkHref.current}>Go back</Link>
       <ul>
         {reviews &&
           reviews.map(review => (

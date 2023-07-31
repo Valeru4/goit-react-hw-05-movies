@@ -1,12 +1,14 @@
 import { fetchMovieCredits } from 'components/services/API';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 export const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     const fetchCast = async () => {
@@ -28,6 +30,8 @@ export const Cast = () => {
     <div>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
+      <Link to={backLinkHref.current}>Go back</Link>
+
       {cast && (
         <ul>
           {cast.map(actor => (
