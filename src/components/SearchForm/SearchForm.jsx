@@ -1,6 +1,6 @@
 import { Button, Input, Wrapper } from './SearchForm.styled';
 
-export const SearchForm = ({ setSearchParams }) => {
+ const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = event => {
     event.preventDefault();
     const searchValue = event.target.name.value.trim();
@@ -23,3 +23,6 @@ export const SearchForm = ({ setSearchParams }) => {
     </Wrapper>
   );
 };
+
+
+export default SearchForm;

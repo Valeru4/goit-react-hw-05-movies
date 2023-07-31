@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { fetchSearchMovies } from 'components/services/API';
 import { useEffect } from 'react';
-import { SearchForm } from 'components/SearchForm/SearchForm';
-import { MovieList } from 'components/MovieList/MoviesList';
+import SearchForm from 'components/SearchForm/SearchForm';
+import MovieList from 'components/MovieList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -43,3 +43,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

@@ -1,10 +1,10 @@
 import { fetchMovieDetails } from 'components/services/API';
 import { useEffect, useRef, useState } from 'react';
 import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
-import { Cast } from 'pages/Cast/Cast';
-import { Reviews } from 'pages/Reviews/Reviews';
+import  Cast  from 'pages/Cast/Cast';
+import  Reviews  from 'pages/Reviews/Reviews';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   // console.log(movieId);
   const [movieDetails, setMovieDetails] = useState(null);
@@ -70,3 +70,6 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+
+export default MovieDetails;
