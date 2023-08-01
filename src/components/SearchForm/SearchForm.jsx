@@ -1,6 +1,6 @@
-import { Button, Input, Wrapper } from './SearchForm.styled';
+import { Button, Form, Input, Wrapper } from './SearchForm.styled';
 
- const SearchForm = ({ setSearchParams }) => {
+const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = event => {
     event.preventDefault();
     const searchValue = event.target.name.value.trim();
@@ -11,7 +11,7 @@ import { Button, Input, Wrapper } from './SearchForm.styled';
 
   return (
     <Wrapper>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           name="name"
@@ -19,10 +19,9 @@ import { Button, Input, Wrapper } from './SearchForm.styled';
           required
         ></Input>
         <Button type="submit">Search</Button>
-      </form>
+      </Form>
     </Wrapper>
   );
 };
-
 
 export default SearchForm;
