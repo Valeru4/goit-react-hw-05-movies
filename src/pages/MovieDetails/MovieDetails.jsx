@@ -8,12 +8,14 @@ import {
   Image,
   MovieTitleOverview,
   Section,
+  StyledAddLink,
   StyledLink,
   SubTitle,
   Text,
   Title,
   TitleGenres,
   Wrapper,
+  WrapperAdditionalLink,
   WrapperImage,
   WrapperText,
 } from './MovieDetails.styled';
@@ -78,12 +80,18 @@ const MovieDetails = () => {
             </Wrapper>
 
             <SubTitle> Additional information</SubTitle>
-            <Link state={{ from: location }} to="Cast">
-              Cast
-            </Link>
-            <Link state={{ from: location }} to="Reviews">
-              Review
-            </Link>
+            <WrapperAdditionalLink>
+              <StyledAddLink>
+                <Link state={{ from: location }} to="Cast">
+                  Cast
+                </Link>
+              </StyledAddLink>
+              <StyledAddLink>
+                <Link state={{ from: location }} to="Reviews">
+                  Review
+                </Link>
+              </StyledAddLink>
+            </WrapperAdditionalLink>
           </Section>
         )}
       </div>

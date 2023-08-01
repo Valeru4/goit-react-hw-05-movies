@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Title = styled.h1`
   font-size: 45px;
@@ -13,14 +12,13 @@ const Image = styled.img`
   max-width: 300px;
   background: #424242;
   border-radius: 15px;
-  margin-left: 25px;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   color: #fff;
-  gap: 50px;
+  gap: 30px;
   padding: 20px;
 `;
 
@@ -43,10 +41,43 @@ const StyledLink = styled.div`
   }
 `;
 
+const WrapperAdditionalLink = styled.div`
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+`;
+
+const StyledAddLink = styled.div`
+  display: inline-block;
+  padding: 5px;
+
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-left: 25px;
+
+  &:hover,
+  :focus {
+    background-color: #01927c;
+  }
+`;
 const WrapperImage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+  margin-right: 25px;
 `;
 
 const WrapperText = styled.div`
@@ -74,7 +105,10 @@ const Genre = styled.li`
 
 const SubTitle = styled.h2`
   font-size: 35px;
+  text-align: center;
   margin-top: 25px;
+  margin-bottom: 15px;
+
   font-weight: 600;
   color: #fff;
   margin-left: 50px;
@@ -86,6 +120,7 @@ const Section = styled.section`
   background-color: #333333;
   margin: 30px;
   border-radius: 15px;
+  padding-bottom: 25px;
 `;
 
 export {
@@ -101,4 +136,6 @@ export {
   Genre,
   SubTitle,
   Section,
+  WrapperAdditionalLink,
+  StyledAddLink,
 };

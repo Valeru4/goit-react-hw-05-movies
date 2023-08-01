@@ -2,6 +2,13 @@ import { fetchMovieReviews } from 'components/services/API';
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
+import {
+  ReviewItem,
+  ReviewList,
+  StyledLink,
+  Text,
+  Title,
+} from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -31,17 +38,19 @@ const Reviews = () => {
   return (
     <div>
       {isLoading && <p>Loading...</p>}
-      <Link to={backLinkHref.current}>Go back</Link>
-      <ul>
+
+      <ReviewList>
         {reviews &&
           reviews.map(review => (
-            <li key={review.id}>
-              <h2>Author: {review.author}</h2>
-              <p>{review.content}</p>
-            </li>
+            <ReviewItem key={review.id}>
+              <Title>Author: {review.author}</Title>
+              <Text>{review.content}</Text>
+            </ReviewItem>
           ))}
-      </ul>
-
+      </ReviewList>
+      <StyledLink>
+        <Link to={backLinkHref.current}>Go back</Link>
+      </StyledLink>
       {error && <p>Error: {error}</p>}
     </div>
   );
