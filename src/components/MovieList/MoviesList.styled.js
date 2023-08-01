@@ -8,8 +8,7 @@ const MoviesList = styled.ul`
 const MovieItem = styled.li`
   font-weight: 600;
   font-size: 30px;
-  /* padding-top: 7px;
-  padding-bottom: 7px; */
+  width: 100%;
   margin-bottom: 10px;
   background-color: #2a2a2a;
   border-radius: 15px;

@@ -21,7 +21,7 @@ const StyledLink = styled.div`
 
 const ReviewItem = styled.li`
   background-color: #333333;
-  border-radius: 5px;
+  border-radius: 15px;
   margin-left: 25px;
   margin-right: 25px;
   padding: 15px;
