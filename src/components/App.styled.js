@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Wrapper = styled.body`
-  background-color: #212121;
+  background-color: #56dcc6;
   box-shadow: 5px 5px #fff;
 `;
 

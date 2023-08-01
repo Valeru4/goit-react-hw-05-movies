@@ -25,21 +25,23 @@ export const Input = styled.input`
   border-radius: 3px;
   margin-right: 15px;
   font-size: 20px;
-  border: 4px solid #56dcc6;
+  border: 4px solid #015346;
+  border-radius: 15px;
 `;
 
 export const Button = styled.button`
   width: 120px;
   height: 51px;
   padding: 10px;
-  background-color: #fff;
+  background-color: #212121;
   color: #56dcc6;
   border: none;
   border-radius: 3px;
   cursor: pointer;
   font-size: 25px;
   font-weight: 600;
-  border: 4px solid #56dcc6;
+  border: 4px solid #015346;
+  border-radius: 15px;
 
   &:hover,
   :focus {

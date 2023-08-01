@@ -4,9 +4,12 @@ import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
 import Cast from 'pages/Cast/Cast';
 import Reviews from 'pages/Reviews/Reviews';
 import {
+  Genre,
   Image,
   MovieTitleOverview,
+  Section,
   StyledLink,
+  SubTitle,
   Text,
   Title,
   TitleGenres,
@@ -49,7 +52,7 @@ const MovieDetails = () => {
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
         {movieDetails && (
-          <section>
+          <Section>
             <StyledLink>
               <Link to={backLinkHref.current}>Go back</Link>
             </StyledLink>
@@ -67,21 +70,22 @@ const MovieDetails = () => {
                 <MovieTitleOverview>Overview</MovieTitleOverview>
                 <Text>{movieDetails.overview}</Text>
                 <TitleGenres>Genres:</TitleGenres>
-                {movieDetails.genres.map(genre => genre.name).join(', ')}
+
+                {movieDetails.genres
+                  .map(genre => <Genre key={genre.id}>{genre.name}</Genre>)
+                  .join(', ')}
               </WrapperText>
             </Wrapper>
-          </section>
-        )}
 
-        <section>
-          <h2> Additional information</h2>
-          <Link state={{ from: location }} to="Cast">
-            Cast
-          </Link>
-          <Link state={{ from: location }} to="Reviews">
-            Review
-          </Link>
-        </section>
+            <SubTitle> Additional information</SubTitle>
+            <Link state={{ from: location }} to="Cast">
+              Cast
+            </Link>
+            <Link state={{ from: location }} to="Reviews">
+              Review
+            </Link>
+          </Section>
+        )}
       </div>
       <Routes>
         <Route path="cast" element={<Cast />} />

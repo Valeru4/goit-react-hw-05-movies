@@ -8,10 +8,11 @@ const MoviesList = styled.ul`
 const MovieItem = styled.li`
   font-weight: 600;
   font-size: 30px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  /* padding-top: 7px;
+  padding-bottom: 7px; */
   margin-bottom: 10px;
   background-color: #2a2a2a;
+  border-radius: 15px;
 
   :not(:last-child) {
     margin-bottom: 6px;
@@ -21,6 +22,9 @@ const MovieItem = styled.li`
   a:focus {
     background-color: #01927c;
     color: #fff;
+    border-radius: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
 
   a {

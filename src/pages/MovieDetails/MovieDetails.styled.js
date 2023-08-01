@@ -13,6 +13,7 @@ const Image = styled.img`
   max-width: 300px;
   background: #424242;
   border-radius: 15px;
+  margin-left: 25px;
 `;
 
 const Wrapper = styled.div`
@@ -20,10 +21,7 @@ const Wrapper = styled.div`
   align-items: center;
   color: #fff;
   gap: 50px;
-  padding: 50px;
-  background-color: #333333;
-  margin: 0 30px;
-  border-radius: 5px;
+  padding: 20px;
 `;
 
 const StyledLink = styled.div`
@@ -67,6 +65,28 @@ const TitleGenres = styled.h3`
 const MovieTitleOverview = styled.h2`
   font-size: 35px;
 `;
+const Genre = styled.li`
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 5px 10px;
+  margin-right: 5px;
+`;
+
+const SubTitle = styled.h2`
+  font-size: 35px;
+  margin-top: 25px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 50px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+`;
+
+const Section = styled.section`
+  background-color: #333333;
+  margin: 30px;
+  border-radius: 15px;
+`;
 
 export {
   Title,
@@ -78,4 +98,7 @@ export {
   Text,
   MovieTitleOverview,
   TitleGenres,
+  Genre,
+  SubTitle,
+  Section,
 };
