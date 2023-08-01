@@ -1,8 +1,19 @@
 import { fetchMovieDetails } from 'components/services/API';
 import { useEffect, useRef, useState } from 'react';
 import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
-import  Cast  from 'pages/Cast/Cast';
-import  Reviews  from 'pages/Reviews/Reviews';
+import Cast from 'pages/Cast/Cast';
+import Reviews from 'pages/Reviews/Reviews';
+import {
+  Image,
+  MovieTitleOverview,
+  StyledLink,
+  Text,
+  Title,
+  TitleGenres,
+  Wrapper,
+  WrapperImage,
+  WrapperText,
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -39,17 +50,26 @@ const MovieDetails = () => {
         {error && <p>Error: {error}</p>}
         {movieDetails && (
           <section>
-            <Link to={backLinkHref.current}>Go back</Link>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-              alt={movieDetails.original_title}
-            />
-            <h1>{movieDetails.title}</h1>
-            <p> User score: {movieDetails.vote_average}</p>
-            <h2>Overview</h2>
-            <p>{movieDetails.overview}</p>
-            <h3>Genres:</h3>
-            {movieDetails.genres.map(genre => genre.name).join(', ')}
+            <StyledLink>
+              <Link to={backLinkHref.current}>Go back</Link>
+            </StyledLink>
+
+            <Wrapper>
+              <WrapperImage>
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+                  alt={movieDetails.original_title}
+                />
+                <Title>{movieDetails.title}</Title>
+              </WrapperImage>
+              <WrapperText>
+                <Text>User score: {movieDetails.vote_average}</Text>
+                <MovieTitleOverview>Overview</MovieTitleOverview>
+                <Text>{movieDetails.overview}</Text>
+                <TitleGenres>Genres:</TitleGenres>
+                {movieDetails.genres.map(genre => genre.name).join(', ')}
+              </WrapperText>
+            </Wrapper>
           </section>
         )}
 
@@ -70,6 +90,5 @@ const MovieDetails = () => {
     </>
   );
 };
-
 
 export default MovieDetails;
