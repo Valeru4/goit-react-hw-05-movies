@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import SearchForm from 'components/SearchForm/SearchForm';
 import MovieList from 'components/MovieList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,7 +37,7 @@ const Movies = () => {
   return (
     <>
       {error && <p>Error: {error}</p>}
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
 
       <SearchForm setSearchParams={setSearchParams} />
       {movies.length > 0 && <MovieList movies={movies} />}

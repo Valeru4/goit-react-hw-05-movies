@@ -9,6 +9,7 @@ import {
   Text,
   Title,
 } from './Reviews.styled';
+import Loader from 'components/Loader/Loader';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -37,7 +38,7 @@ const Reviews = () => {
 
   return (
     <div>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
 
       <ReviewList>
         {reviews &&
@@ -48,9 +49,9 @@ const Reviews = () => {
             </ReviewItem>
           ))}
       </ReviewList>
-      <StyledLink>
-        <Link to={backLinkHref.current}>Go back</Link>
-      </StyledLink>
+
+      <StyledLink to={backLinkHref.current}>Go back</StyledLink>
+
       {error && <p>Error: {error}</p>}
     </div>
   );

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-const Wrapper = styled.body`
-  background-color: #56dcc6;
-  box-shadow: 5px 5px #fff;
-`;
+// const Wrapper = styled.body`
+//   background-color: #56dcc6;
+//   box-shadow: 5px 5px #fff;
+// `;
 
 const Header = styled.header`
   background-color: #015346;
@@ -37,4 +37,4 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export { Wrapper, Header, Navigation, StyledNavLink };
+export { Header, Navigation, StyledNavLink };

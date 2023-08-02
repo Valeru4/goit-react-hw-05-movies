@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const CastList = styled.ul`
@@ -25,7 +26,7 @@ const Text = styled.p`
   color: #fff;
 `;
 
-const StyledLink = styled.div`
+const StyledLink = styled(Link)`
   display: inline-block;
   padding: 5px;
 

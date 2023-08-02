@@ -1,6 +1,6 @@
 import { fetchMovieDetails } from 'components/services/API';
 import { useEffect, useRef, useState } from 'react';
-import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
+import { useParams, Routes, Route, useLocation } from 'react-router-dom';
 import Cast from 'pages/Cast/Cast';
 import Reviews from 'pages/Reviews/Reviews';
 import {
@@ -19,6 +19,7 @@ import {
   WrapperImage,
   WrapperText,
 } from './MovieDetails.styled';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -48,16 +49,18 @@ const MovieDetails = () => {
     fetchData();
   }, [movieId]);
 
+  const genresList = movieDetails?.genres.map(({ name }) => name).join(', ');
+
   return (
     <>
       <div>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <Loader />}
         {error && <p>Error: {error}</p>}
         {movieDetails && (
           <Section>
-            <StyledLink>
-              <Link to={backLinkHref.current}>Go back</Link>
-            </StyledLink>
+            {/* <StyledLink> */}
+            <StyledLink to={backLinkHref.current}>Go back</StyledLink>
+            {/* </StyledLink> */}
 
             <Wrapper>
               <WrapperImage>
@@ -73,23 +76,17 @@ const MovieDetails = () => {
                 <Text>{movieDetails.overview}</Text>
                 <TitleGenres>Genres:</TitleGenres>
 
-                {movieDetails.genres
-                  .map(genre => <Genre key={genre.id}>{genre.name}</Genre>)
-                  .join(', ')}
+                <Genre> {genresList} </Genre>
               </WrapperText>
             </Wrapper>
 
             <SubTitle> Additional information</SubTitle>
             <WrapperAdditionalLink>
-              <StyledAddLink>
-                <Link state={{ from: location }} to="Cast">
-                  Cast
-                </Link>
+              <StyledAddLink state={{ from: location }} to="Cast">
+                Cast
               </StyledAddLink>
-              <StyledAddLink>
-                <Link state={{ from: location }} to="Reviews">
-                  Review
-                </Link>
+              <StyledAddLink state={{ from: location }} to="Reviews">
+                Review
               </StyledAddLink>
             </WrapperAdditionalLink>
           </Section>

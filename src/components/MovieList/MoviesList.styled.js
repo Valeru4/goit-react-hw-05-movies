@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const MoviesList = styled.ul`
   margin-top: 15px;
   margin-left: 50px;
+  margin-right: 50px;
 `;
 
 const MovieItem = styled.li`

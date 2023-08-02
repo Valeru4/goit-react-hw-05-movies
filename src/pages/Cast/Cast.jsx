@@ -2,6 +2,7 @@ import { fetchMovieCredits } from 'components/services/API';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { CastItem, CastList, Image, StyledLink, Text } from './Cast.styled';
+import Loader from 'components/Loader/Loader';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -30,7 +31,7 @@ const Cast = () => {
 
   return (
     <div>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {error && <p>Error: {error}</p>}
 
       {cast && (
@@ -40,7 +41,7 @@ const Cast = () => {
               <Image
                 src={
                   actor.profile_path === null
-                    ? `https://www.vecteezy.com/vector-art/26288012-no-photo-icon-in-trendy-flat-style-isolated-on-black-background-vector-illustration`
+                    ? `https://fakeimg.pl/300x400?text=No+image&font=bebas`
                     : `https://image.tmdb.org/t/p/w154/${actor.profile_path}`
                 }
                 alt={actor.name}
@@ -51,9 +52,8 @@ const Cast = () => {
           ))}
         </CastList>
       )}
-      <StyledLink>
-        <Link to={backLinkHref.current}>Go back</Link>
-      </StyledLink>
+
+      <StyledLink to={backLinkHref.current}>Go back</StyledLink>
     </div>
   );
 };
