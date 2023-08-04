@@ -79,6 +79,7 @@ const WrapperImage = styled.div`
   justify-content: center;
   margin-left: 25px;
   margin-right: 25px;
+  text-align: center;
 `;
 
 const WrapperText = styled.div`
